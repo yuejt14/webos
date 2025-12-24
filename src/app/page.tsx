@@ -1,5 +1,6 @@
-export default function Home() {
-  const message = 'Hello World!';
-  const element = <h1>{message}</h1>;
-  return element;
+import { ReactElement } from "react";
+import processDirectory from "@/utils/processDirectory";
+
+export default function Home(): ReactElement {
+  return <processDirectory.HelloWorld.component />;
 }

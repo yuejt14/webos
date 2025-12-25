@@ -2,16 +2,18 @@
 
 import useSessionContextState from '@/hooks/useSessionContextState';
 import type { SessionContextState } from '@/types/contexts/session';
-import { createContext, FC } from 'react';
+import { createContext, type ReactElement, type ReactNode, useContext } from 'react';
 
 const SessionContext = createContext<SessionContextState>({ theme: undefined });
 
-export const ProcessProvider: FC<{ children: React.ReactNode }> = ({ children }) => {
+export function useSessionContext(): SessionContextState {
+    return useContext(SessionContext);
+}
+
+export function ProcessProvider(children: ReactNode): ReactElement {
     return (
         <SessionContext.Provider value={useSessionContextState()}>
             {children}
         </SessionContext.Provider>
     );
-};
-
-export const SessionConsumer = SessionContext.Consumer;
+}

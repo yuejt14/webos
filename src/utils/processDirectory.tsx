@@ -1,6 +1,6 @@
 'use client';
 
-import { Processes } from '@/types/contexts/process';
+import type { Processes } from '@/types/contexts/process';
 import dynamic from 'next/dynamic';
 
 

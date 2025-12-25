@@ -1,18 +1,17 @@
 'use client';
 
-import { ProcessConsumer } from "@/contexts/processes";
-import { FC } from "react";
+import { useProcessContext } from "@/contexts/processes";
+import type { ReactElement } from "react";
 
-const ProcessLoader: FC = () => (
-    <ProcessConsumer>
-        {({ processes }) => (
-            <>
-                {Object.entries(processes).map(([id, { Component }]) => (
-                    <Component key={id} />
-                ))}
-            </>
-        )}
-    </ProcessConsumer>
-);
+function ProcessLoader(): ReactElement {
+    const { processes } = useProcessContext();
+    return (
+        <>
+            {Object.entries(processes).map(([id, { Component }]) => (
+                <Component key={id}/>
+            ))}
+        </>
+    );
+}
 
 export default ProcessLoader;

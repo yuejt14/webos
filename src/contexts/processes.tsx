@@ -3,16 +3,19 @@
 import useProcessContextState from '@/hooks/useProcessContextState';
 import type { ProcessContextState } from '@/types/contexts/process';
 import processDirectory from '@/utils/processDirectory';
-import { createContext, FC, ReactNode } from 'react';
+import type { ReactElement, ReactNode} from 'react';
+import { createContext, useContext } from 'react';
 
 const ProcessContext = createContext<ProcessContextState>({ processes: {} });
 
-export const ProcessProvider: FC<{ children: ReactNode }> = ({ children }) => {
+export function useProcessContext(): ProcessContextState {
+    return useContext(ProcessContext);
+}
+
+export function ProcessProvider({children}: {children: ReactNode}): ReactElement {
     return (
         <ProcessContext.Provider value={useProcessContextState(processDirectory)}>
             {children}
         </ProcessContext.Provider>
     );
-};
-
-export const ProcessConsumer = ProcessContext.Consumer;
+}

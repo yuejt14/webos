@@ -18,6 +18,7 @@ const eslintConfig = defineConfig([
     rules: {
       // Add custom rules here
       semi: ["error", "always"],
+      "@typescript-eslint/consistent-type-imports": "error",
     },
   }
 ]);

@@ -1,4 +1,4 @@
-import { ReactElement } from "react";
+import type { ReactElement } from "react";
 import { ProcessProvider } from "@/contexts/processes";
 import ProcessLoader from "@/components/system/ProcessLoader";
 

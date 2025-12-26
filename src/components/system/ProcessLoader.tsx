@@ -8,11 +8,15 @@ function ProcessLoader(): ReactElement {
   const { processes } = useProcessContext();
   return (
     <>
-      {Object.entries(processes).map(([id, { Component, hasWindow }]) => (
-        <Window key={id}>
+      {Object.entries(processes).map(([id, { Component, hasWindow }]) =>
+        hasWindow ? (
+          <Window key={id}>
+            <Component key={id} />
+          </Window>
+        ) : (
           <Component key={id} />
-        </Window>
-      ))}
+        )
+      )}
     </>
   );
 }

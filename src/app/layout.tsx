@@ -7,11 +7,13 @@ import StyledApp from "@/components/apps/StyledApp";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  preload: true,
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  preload: true,
 });
 
 export const metadata: Metadata = {
@@ -27,9 +29,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <SessionProvider>
-          <StyledApp>{children}</StyledApp>
-        </SessionProvider>
+        <main>
+          <SessionProvider>
+            <StyledApp>{children}</StyledApp>
+          </SessionProvider>
+        </main>
       </body>
     </html>
   );

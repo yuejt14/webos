@@ -20,7 +20,7 @@ const eslintConfig = defineConfig([
       semi: ["error", "always"],
       "@typescript-eslint/consistent-type-imports": "error",
     },
-  }
+  },
 ]);
 
 export default eslintConfig;

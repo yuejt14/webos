@@ -1,3 +1,4 @@
+import { SessionProvider } from "@/contexts/session";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.scss";
@@ -26,9 +27,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <StyledApp>
-          {children}
-        </StyledApp>
+        <SessionProvider>
+          <StyledApp>{children}</StyledApp>
+        </SessionProvider>
       </body>
     </html>
   );

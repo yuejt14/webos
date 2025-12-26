@@ -6,7 +6,7 @@ import themes from "@/styles/themes.module.scss";
 
 function StyledApp({ children }: { children: ReactNode }): ReactElement {
   const { theme } = useSessionContext();
-  return <div className={themes[theme || "light"]}>{children}</div>;
+  return <div className={themes[theme || "default"]}>{children}</div>;
 }
 
 export default StyledApp;

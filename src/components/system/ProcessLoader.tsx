@@ -1,8 +1,8 @@
 "use client";
 
+import type { ReactElement } from "react";
 import Window from "@/components/system/Window";
 import { useProcessContext } from "@/contexts/processes";
-import type { ReactElement } from "react";
 
 function ProcessLoader(): ReactElement {
   const { processes } = useProcessContext();
@@ -15,7 +15,7 @@ function ProcessLoader(): ReactElement {
           </Window>
         ) : (
           <Component key={id} />
-        )
+        ),
       )}
     </>
   );

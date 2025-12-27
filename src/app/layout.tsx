@@ -1,6 +1,6 @@
-import { SessionProvider } from "@/contexts/session";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { SessionProvider } from "@/contexts/session";
 import "./globals.scss";
 import StyledApp from "@/components/apps/StyledApp";
 

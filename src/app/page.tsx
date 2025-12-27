@@ -1,6 +1,6 @@
 import type { ReactElement } from "react";
-import { ProcessProvider } from "@/contexts/processes";
 import ProcessLoader from "@/components/system/ProcessLoader";
+import { ProcessProvider } from "@/contexts/processes";
 
 export default function Home(): ReactElement {
   return (

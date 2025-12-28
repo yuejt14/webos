@@ -6,10 +6,15 @@ import useProcessContextState from "@/hooks/useProcessContextState";
 import type { ProcessContextState } from "@/types/contexts/process";
 import processDirectory from "@/utils/processDirectory";
 
-const ProcessContext = createContext<ProcessContextState>({ processes: {} });
+const ProcessContext = createContext<ProcessContextState | null>(null);
 
 export function useProcessContext(): ProcessContextState {
-  return useContext(ProcessContext);
+  const processes = useContext(ProcessContext);
+  if (!processes) {
+    throw new Error("useProcessContext must be used within a ProcessProvider");
+  }
+
+  return processes;
 }
 
 export function ProcessProvider({

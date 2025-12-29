@@ -7,7 +7,7 @@ const START_UP_PROCESSES: string[] = ["HelloWorld"];
 
 export const processDirectory: Processes = {
   HelloWorld: {
-    Component: dynamic(() => import("@/components/apps/HelloWorld")),
+    Component: dynamic(() => import("@/components/apps/HelloWorld/HelloWorld")),
     hasWindow: true,
   },
 };

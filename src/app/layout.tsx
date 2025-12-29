@@ -1,8 +1,9 @@
+import "./globals.scss";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { SessionProvider } from "@/contexts/session";
-import "./globals.scss";
+import { description, title } from "package.json";
 import StyledApp from "@/components/apps/StyledApp";
+import { SessionProvider } from "@/contexts/session";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,8 +18,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Web OS",
-  description: "Web OS created using Next.js",
+  title: title,
+  description: description,
 };
 
 export default function RootLayout({

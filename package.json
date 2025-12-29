@@ -1,6 +1,8 @@
 {
   "name": "webos",
   "version": "0.1.0",
+  "title": "Web OS",
+  "description": "Web OS created using Next.js",
   "private": true,
   "scripts": {
     "dev": "next dev",

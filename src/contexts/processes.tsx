@@ -4,7 +4,7 @@ import type { ReactElement, ReactNode } from "react";
 import { createContext, useContext } from "react";
 import useProcessContextState from "@/hooks/useProcessContextState";
 import type { ProcessContextState } from "@/types/contexts/process";
-import processDirectory from "@/utils/processDirectory";
+import { getStartupProcesses } from "@/utils/processDirectory";
 
 const ProcessContext = createContext<ProcessContextState | null>(null);
 
@@ -23,7 +23,9 @@ export function ProcessProvider({
   children: ReactNode;
 }): ReactElement {
   return (
-    <ProcessContext.Provider value={useProcessContextState(processDirectory)}>
+    <ProcessContext.Provider
+      value={useProcessContextState(getStartupProcesses())}
+    >
       {children}
     </ProcessContext.Provider>
   );

@@ -1,9 +1,11 @@
 .default {
   --color-primary: #000000;
+  --color-background-color: #000000;
   --color-window: #909090;
 }
 
 .light {
   --color-primary: #ffffff;
+  --color-background-color: #ffffff;
   --color-window: #f0f0f0;
 }

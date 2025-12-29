@@ -4,7 +4,6 @@ import type { ReactElement, ReactNode } from "react";
 import { createContext, useContext } from "react";
 import useProcessContextState from "@/hooks/useProcessContextState";
 import type { ProcessContextState } from "@/types/contexts/process";
-import { getStartupProcesses } from "@/utils/processDirectory";
 
 const ProcessContext = createContext<ProcessContextState | null>(null);
 

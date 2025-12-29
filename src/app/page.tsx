@@ -5,10 +5,10 @@ import { ProcessProvider } from "@/contexts/processes";
 
 export default function Home(): ReactElement {
   return (
-    <ProcessProvider>
-      <Desktop>
+    <Desktop>
+      <ProcessProvider>
         <ProcessLoader />
-      </Desktop>
-    </ProcessProvider>
+      </ProcessProvider>
+    </Desktop>
   );
 }

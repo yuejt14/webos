@@ -1,7 +1,7 @@
-import type themes from "@/styles/themes.module.scss";
-
-export type Theme = keyof typeof themes;
+import type { Dispatch, SetStateAction } from "react";
+import type { Theme } from "@/types/theme";
 
 export type SessionContextState = {
-  theme: Theme | undefined;
+  theme: Theme;
+  setTheme: Dispatch<SetStateAction<Theme>>;
 };

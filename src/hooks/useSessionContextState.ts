@@ -1,7 +1,12 @@
+import { useState } from "react";
 import type { SessionContextState } from "@/types/contexts/session";
+import type { Theme } from "@/types/theme";
 
-const useSessionContextState = (): SessionContextState => ({
-  theme: "default", //TODO: Load User theme from local storage
-});
+export function useSessionContextState(): SessionContextState {
+  const [theme, setTheme] = useState<Theme>("default");
 
-export default useSessionContextState;
+  return {
+    theme,
+    setTheme,
+  };
+}

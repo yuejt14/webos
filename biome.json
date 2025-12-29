@@ -18,8 +18,24 @@
     "enabled": true,
     "rules": {
       "recommended": true,
+      "correctness": {
+        "noUnusedImports": {
+          "level": "error",
+          "fix": "safe"
+        }
+      },
       "style": {
-        "useImportType": "error"
+        "useImportType": {
+          "options": {
+            "style": "separatedType"
+          },
+          "level": "error"
+        }
+      },
+      "performance": {
+        "noNamespaceImport": "error",
+        "noDelete": "error",
+        "noBarrelFile": "error"
       }
     },
     "domains": {

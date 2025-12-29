@@ -23,9 +23,7 @@ export function ProcessProvider({
   children: ReactNode;
 }): ReactElement {
   return (
-    <ProcessContext.Provider
-      value={useProcessContextState(getStartupProcesses())}
-    >
+    <ProcessContext.Provider value={useProcessContextState()}>
       {children}
     </ProcessContext.Provider>
   );

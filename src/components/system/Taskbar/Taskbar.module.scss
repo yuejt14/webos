@@ -2,14 +2,21 @@
   bottom: 0;
   left: 0;
   right: 0;
-  height: 40px;
+  height: 48px;
   width: 100vw;
   position: fixed;
-  background-color: rgba(0, 0, 0, 0.85);
-  backdrop-filter: blur(20px);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(
+    180deg,
+    rgba(32, 32, 32, 0.95) 0%,
+    rgba(24, 24, 24, 0.98) 100%
+  );
+  backdrop-filter: blur(40px) saturate(150%);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 -2px 20px rgba(0, 0, 0, 0.3);
   display: flex;
   align-items: center;
-  gap: 4px;
-  padding: 0 4px;
+  justify-content: space-between;
+  gap: 6px;
+  padding: 0 8px;
+  z-index: 1000;
 }

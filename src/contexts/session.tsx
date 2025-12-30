@@ -1,29 +1,10 @@
 "use client";
 
-import type { ReactElement, ReactNode } from "react";
-import { createContext, useContext } from "react";
+import { contextFactory } from "@/contexts/contextFactory";
 import { useSessionContextState } from "@/hooks/useSessionContextState";
 import type { SessionContextState } from "@/types/contexts/session";
 
-const SessionContext = createContext<SessionContextState | null>(null);
+const [useSessionContext, SessionProvider] =
+  contextFactory<SessionContextState>(useSessionContextState);
 
-export function useSessionContext(): SessionContextState {
-  const session = useContext(SessionContext);
-  if (!session) {
-    throw new Error("useSessionContext must be used within a SessionProvider");
-  }
-
-  return session;
-}
-
-export function SessionProvider({
-  children,
-}: {
-  children: ReactNode;
-}): ReactElement {
-  return (
-    <SessionContext.Provider value={useSessionContextState()}>
-      {children}
-    </SessionContext.Provider>
-  );
-}
+export { useSessionContext, SessionProvider };

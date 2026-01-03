@@ -1,7 +1,7 @@
 "use client";
 
 import type { ReactElement } from "react";
-import { RenderProcess } from "@/components/system/RenderProcess";
+import { RenderProcess } from "@/components/system/Processes/RenderProcess";
 import { useProcessContext } from "@/contexts/processes";
 
 function ProcessLoader(): ReactElement {

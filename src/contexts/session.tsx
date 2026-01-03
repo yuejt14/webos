@@ -1,8 +1,8 @@
 "use client";
 
-import { contextFactory } from "@/contexts/contextFactory";
 import { useSessionContextState } from "@/hooks/useSessionContextState";
 import type { SessionContextState } from "@/types/contexts/session";
+import { contextFactory } from "@/utils/contextFactory";
 
 const [useSessionContext, SessionProvider] =
   contextFactory<SessionContextState>(useSessionContextState);

@@ -1,43 +1,45 @@
 .startButton {
-  height: 36px;
-  min-width: 48px;
-  padding: 0 16px;
+  height: 100%;
+  width: 48px;
+  padding: 0;
   border: none;
-  background: linear-gradient(
-    135deg,
-    rgba(0, 120, 212, 0.8) 0%,
-    rgba(0, 90, 158, 0.85) 100%
-  );
+  background: transparent;
   color: #ffffff;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.3px;
   cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  border-radius: 6px;
+  transition: background-color 0.1s ease;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  box-shadow: 0 2px 8px rgba(0, 120, 212, 0.2);
+  position: relative;
+
+  svg {
+    width: 27px;
+    height: 27px;
+    flex-shrink: 0;
+    color: #ffffff;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: #0078d4;
+    transition: width 0.1s ease;
+  }
 
   &:hover {
-    background: linear-gradient(
-      135deg,
-      rgba(0, 135, 235, 0.9) 0%,
-      rgba(0, 105, 180, 0.95) 100%
-    );
-    box-shadow: 0 4px 12px rgba(0, 120, 212, 0.35);
-    transform: translateY(-1px);
+    background: rgba(255, 255, 255, 0.1);
+
+    &::before {
+      width: 32px;
+    }
   }
 
   &:active {
-    background: linear-gradient(
-      135deg,
-      rgba(0, 100, 185, 0.85) 0%,
-      rgba(0, 75, 140, 0.9) 100%
-    );
-    box-shadow: 0 1px 4px rgba(0, 120, 212, 0.25);
-    transform: translateY(0);
+    background: rgba(255, 255, 255, 0.05);
   }
 }

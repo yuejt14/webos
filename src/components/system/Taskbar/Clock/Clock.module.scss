@@ -1,41 +1,39 @@
 .clock {
-  height: 36px;
-  padding: 0 14px;
+  height: 100%;
+  padding: 4px 12px;
   border: none;
-  background-color: rgba(255, 255, 255, 0.04);
-  color: rgba(255, 255, 255, 0.95);
+  background: transparent;
+  color: #ffffff;
   font-size: 11px;
   cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  border-radius: 6px;
+  transition: background-color 0.1s ease;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
   gap: 2px;
   line-height: 1.2;
-  min-width: 80px;
+  white-space: nowrap;
 
   &:hover {
     background-color: rgba(255, 255, 255, 0.1);
-    transform: translateY(-1px);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   }
 
   &:active {
-    background-color: rgba(255, 255, 255, 0.06);
-    transform: translateY(0);
+    background-color: rgba(255, 255, 255, 0.05);
   }
 }
 
 .time {
-  font-weight: 600;
-  font-size: 12px;
-  letter-spacing: 0.2px;
+  font-weight: 400;
+  font-size: 11px;
+  text-align: center;
+  letter-spacing: 0.1px;
 }
 
 .date {
-  opacity: 0.75;
-  font-size: 10px;
-  font-weight: 500;
+  font-size: 11px;
+  font-weight: 400;
+  text-align: center;
+  letter-spacing: 0.1px;
 }

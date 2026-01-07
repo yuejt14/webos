@@ -1,0 +1,21 @@
+.themeToggle {
+  height: 100%;
+  width: 48px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background-color 0.1s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background-color: var(--color-hover-overlay);
+  }
+
+  &:active {
+    background-color: var(--color-active-overlay);
+  }
+}

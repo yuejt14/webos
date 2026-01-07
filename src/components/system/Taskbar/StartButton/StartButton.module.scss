@@ -4,7 +4,7 @@
   padding: 0;
   border: none;
   background: transparent;
-  color: #ffffff;
+  color: var(--color-text-primary);
   cursor: pointer;
   transition: background-color 0.1s ease;
   display: flex;
@@ -16,7 +16,7 @@
     width: 27px;
     height: 27px;
     flex-shrink: 0;
-    color: #ffffff;
+    color: var(--color-text-primary);
   }
 
   &::before {
@@ -27,12 +27,12 @@
     transform: translateX(-50%);
     width: 0;
     height: 2px;
-    background: #0078d4;
+    background: var(--color-accent-primary);
     transition: width 0.1s ease;
   }
 
   &:hover {
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--color-hover-overlay);
 
     &::before {
       width: 32px;
@@ -40,6 +40,6 @@
   }
 
   &:active {
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--color-active-overlay);
   }
 }

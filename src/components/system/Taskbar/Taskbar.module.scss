@@ -7,12 +7,12 @@
   position: fixed;
   background: linear-gradient(
     180deg,
-    rgba(32, 32, 32, 0.95) 0%,
-    rgba(24, 24, 24, 0.98) 100%
+    var(--color-taskbar-bg-start) 0%,
+    var(--color-taskbar-bg-end) 100%
   );
   backdrop-filter: blur(40px) saturate(150%);
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 -2px 20px rgba(0, 0, 0, 0.3);
+  border-top: 1px solid var(--color-taskbar-border);
+  box-shadow: var(--shadow-taskbar);
   display: flex;
   align-items: center;
   justify-content: space-between;

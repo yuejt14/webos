@@ -6,6 +6,10 @@ const disableControls = {
   touchControls: false,
 };
 
+const configs = {
+  waveSpeed: 0.55,
+};
+
 export const vantaWaves: WallpaperEffect = (
   desktopRef: RefObject<HTMLElement>,
 ) => {
@@ -22,6 +26,7 @@ export const vantaWaves: WallpaperEffect = (
         el: desktopRef.current,
         THREE,
         ...disableControls,
+        ...configs,
       });
     }
   })();

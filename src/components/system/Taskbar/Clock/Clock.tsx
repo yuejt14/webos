@@ -27,8 +27,8 @@ export default function Clock(): ReactElement {
 
   return (
     <button className={styles.clock} type="button">
-      <div className={styles.time}>{formattedTime}</div>
-      <div className={styles.date}>{formattedDate}</div>
+      <span className={styles.time}>{formattedTime}</span>
+      <span className={styles.date}>{formattedDate}</span>
     </button>
   );
 }

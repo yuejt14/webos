@@ -1,29 +1,48 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import type { Processes } from "@/types/contexts/process";
+import type {
+  Processes,
+  SystemProcess,
+  WindowedProcess,
+} from "@/types/contexts/process";
 
-const START_UP_PROCESSES: string[] = ["Desktop", "Taskbar", "HelloWorld"];
-
-export const processDirectory: Processes = {
+// System processes - always run, manage the OS shell
+export const systemDirectory: Record<string, SystemProcess> = {
   Desktop: {
     Component: dynamic(() => import("@/components/system/Desktop/Desktop")),
-    hasWindow: false,
   },
+  Taskbar: {
+    Component: dynamic(() => import("@/components/system/Taskbar/Taskbar")),
+  },
+};
+
+// App registry - user applications with windows
+export const appDirectory: Record<string, WindowedProcess> = {
   HelloWorld: {
     Component: dynamic(() => import("@/components/apps/HelloWorld/HelloWorld")),
     hasWindow: true,
     title: "Hello World",
     icon: "/window.svg",
   },
-  Taskbar: {
-    Component: dynamic(() => import("@/components/system/Taskbar/Taskbar")),
-    hasWindow: false,
-  },
 };
 
-export function getStartupProcesses(): Processes {
+// Apps that auto-launch on startup
+const AUTO_START_APPS: string[] = ["HelloWorld"];
+
+export function getSystemProcesses(): Record<string, SystemProcess> {
+  return { ...systemDirectory };
+}
+
+export function getStartupApps(): Record<string, WindowedProcess> {
   return Object.fromEntries(
-    START_UP_PROCESSES.map((id) => [id, processDirectory[id]]),
+    AUTO_START_APPS.map((id) => [id, appDirectory[id]]),
   );
+}
+
+export function getStartupProcesses(): Processes {
+  return {
+    ...getSystemProcesses(),
+    ...getStartupApps(),
+  };
 }

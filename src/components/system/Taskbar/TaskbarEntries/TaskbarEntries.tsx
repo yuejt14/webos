@@ -1,14 +1,17 @@
 "use client";
 
 import type { ReactElement } from "react";
-import type { Process } from "@/types/contexts/process";
 import { useProcessContext } from "@/contexts/processes";
+import type { Process } from "@/types/contexts/process";
 import TaskbarEntry from "../TaskbarEntry/TaskbarEntry";
 import styles from "./TaskbarEntries.module.scss";
 
 function isWindowedProcess(
   entry: [string, Process],
-): entry is [string, Process & { hasWindow: true; title: string; icon: string }] {
+): entry is [
+  string,
+  Process & { hasWindow: true; title: string; icon: string },
+] {
   return entry[1].hasWindow === true;
 }
 

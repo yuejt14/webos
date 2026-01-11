@@ -4,11 +4,11 @@ type BaseProcess = {
   Component: ComponentType;
 };
 
-type SystemProcess = BaseProcess & {
+export type SystemProcess = BaseProcess & {
   hasWindow?: false;
 };
 
-type WindowedProcess = BaseProcess & {
+export type WindowedProcess = BaseProcess & {
   hasWindow: true;
   title: string;
   icon: string;

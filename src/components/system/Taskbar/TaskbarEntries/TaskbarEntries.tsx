@@ -1,24 +1,31 @@
+"use client";
+
 import type { ReactElement } from "react";
+import type { Process } from "@/types/contexts/process";
+import { useProcessContext } from "@/contexts/processes";
 import TaskbarEntry from "../TaskbarEntry/TaskbarEntry";
 import styles from "./TaskbarEntries.module.scss";
 
+function isWindowedProcess(
+  entry: [string, Process],
+): entry is [string, Process & { hasWindow: true; title: string; icon: string }] {
+  return entry[1].hasWindow === true;
+}
+
 export default function TaskbarEntries(): ReactElement {
-  // TODO: Connect to actual process state
-  const entries = [
-    { id: "1", title: "File Explorer", icon: "📁", isActive: true },
-    { id: "2", title: "Browser", icon: "🌐", isActive: false },
-    { id: "3", title: "Terminal", icon: "⌨️", isActive: false },
-  ];
+  const { processes } = useProcessContext();
+
+  const windowedProcesses = Object.entries(processes).filter(isWindowedProcess);
 
   return (
     <div className={styles.taskbarEntries}>
-      {entries.map((entry) => (
+      {windowedProcesses.map(([id, process]) => (
         <TaskbarEntry
-          key={entry.id}
-          id={entry.id}
-          title={entry.title}
-          icon={entry.icon}
-          isActive={entry.isActive}
+          key={id}
+          id={id}
+          title={process.title}
+          icon={process.icon}
+          isActive={false}
         />
       ))}
     </div>

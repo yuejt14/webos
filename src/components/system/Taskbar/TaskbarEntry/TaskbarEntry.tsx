@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { ReactElement } from "react";
 import styles from "./TaskbarEntry.module.scss";
 
@@ -7,6 +8,10 @@ interface TaskbarEntryProps {
   icon?: string;
   isActive?: boolean;
   onClick?: () => void;
+}
+
+function isImagePath(icon: string): boolean {
+  return icon.startsWith("/") || icon.startsWith("http");
 }
 
 export default function TaskbarEntry({
@@ -22,7 +27,15 @@ export default function TaskbarEntry({
       type="button"
       title={title}
     >
-      {icon && <span className={styles.icon}>{icon}</span>}
+      {icon && (
+        <span className={styles.icon}>
+          {isImagePath(icon) ? (
+            <Image src={icon} alt={title} width={16} height={16} />
+          ) : (
+            icon
+          )}
+        </span>
+      )}
       <span className={styles.title}>{title}</span>
     </button>
   );

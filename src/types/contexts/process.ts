@@ -1,9 +1,20 @@
 import type { ComponentType } from "react";
 
-export type Process = {
+type BaseProcess = {
   Component: ComponentType;
-  hasWindow?: boolean;
 };
+
+type SystemProcess = BaseProcess & {
+  hasWindow?: false;
+};
+
+type WindowedProcess = BaseProcess & {
+  hasWindow: true;
+  title: string;
+  icon: string;
+};
+
+export type Process = SystemProcess | WindowedProcess;
 
 export type Processes = {
   [id: string]: Process;

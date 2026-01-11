@@ -28,7 +28,7 @@ export const appDirectory: Record<string, WindowedProcess> = {
 };
 
 // Apps that auto-launch on startup
-const AUTO_START_APPS: string[] = ["HelloWorld"];
+const AUTO_START_APPS: string[] = [];
 
 export function getSystemProcesses(): Record<string, SystemProcess> {
   return { ...systemDirectory };

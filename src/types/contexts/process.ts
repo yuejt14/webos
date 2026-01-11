@@ -22,4 +22,6 @@ export type Processes = {
 
 export type ProcessContextState = {
   processes: Processes;
+  openProcess: (id: string) => void;
+  closeProcess: (id: string) => void;
 };

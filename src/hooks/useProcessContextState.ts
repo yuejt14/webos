@@ -1,35 +1,28 @@
-import { useCallback, useState } from "react";
+import { useCallback, useReducer } from "react";
+import { processReducer } from "@/reducers/processReducer";
 import type { ProcessContextState, Processes } from "@/types/contexts/process";
-import {
-  appDirectory,
-  getStartupApps,
-  getSystemProcesses,
-} from "@/utils/processDirectory";
+import { getStartupApps, getSystemProcesses } from "@/utils/processDirectory";
 
-export function useProcessContextState(): ProcessContextState {
-  const [processes, setProcesses] = useState<Processes>(() => ({
+function getInitialState(): Processes {
+  return {
     ...getSystemProcesses(),
     ...getStartupApps(),
-  }));
+  };
+}
+
+export function useProcessContextState(): ProcessContextState {
+  const [processes, dispatch] = useReducer(
+    processReducer,
+    null,
+    getInitialState,
+  );
 
   const openProcess = useCallback((id: string) => {
-    const process = appDirectory[id];
-    if (!process) return;
-
-    setProcesses((prev) => ({
-      ...prev,
-      [id]: process,
-    }));
+    dispatch({ type: "OPEN", id });
   }, []);
 
   const closeProcess = useCallback((id: string) => {
-    // Prevent closing system processes
-    if (id in getSystemProcesses()) return;
-
-    setProcesses((prev) => {
-      const { [id]: _, ...rest } = prev;
-      return rest;
-    });
+    dispatch({ type: "CLOSE", id });
   }, []);
 
   return { processes, openProcess, closeProcess };
